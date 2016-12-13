@@ -1,0 +1,31 @@
+{
+  "name": "sails-sql-converter-cli",
+  "version": "0.1.0",
+  "description": "Converts an SQL schema to a valid sails model preserving all relationships",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/tests/**/*.test.js"
+  },
+  "keywords": [
+    "sails model, convertor, sails.js, sailsjs, sails, sql, mysql"
+  ],
+  "dependencies": {
+    "nopt": "3.0.6"
+  },
+  "devDependencies": {
+    "mocha": ">= 2.5.3",
+    "chai": ">= 3.5.0"
+  },
+  "author": "Oteng Kwaku <otengkwaku@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Oteng/sails-sql-convertor-cli"
+  },
+  "bin": {
+    "sails-sql": "index.js"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10.0"
+  }
+}
