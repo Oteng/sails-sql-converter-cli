@@ -22,7 +22,7 @@
     "url": "https://github.com/Oteng/sails-sql-convertor-cli"
   },
   "bin": {
-    "sails-sql": "index.js"
+    "sails-sql": "./bin/sails-sql.js"
   },
   "license": "MIT",
   "engines": {
