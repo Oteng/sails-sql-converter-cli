@@ -1,4 +1,5 @@
 #sails-sql-converter-cli
+![enter image description here](http://sailsjs.org/images/bkgd_squiddy.png)
 ###Description:
 This is a command line tool for generating sails models from sql scheme. It works by taking an sql scheme file
 eg: 
