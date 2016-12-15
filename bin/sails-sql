@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+"use strict";
+
+/**
+ *
+ * sails-sql-converter-cli
+ *
+ * This file is the entry file to the program.
+ * It handles the command line option parsing and other checks
+ * before starting the actual application.
+ *
+ * author: Oteng Kwaku <otengkwaku@gmail.com>
+ * Licensed under the MIT license.
+ *
+ */
+
+var cli = require('../index.js');
+var opt = cli.init();
+cli.run(opt);
