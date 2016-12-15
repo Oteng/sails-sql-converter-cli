@@ -55,12 +55,12 @@ module.exports = {
         }
 
         //check if path is a valid path and file exist and ends in sql
-        var fileDes = path.parse(optParsed.file);
+        // var fileDes = path.parse(optParsed.file);
 
         if (!fs.existsSync(optParsed.file))
             return this.printHelpMessage("Check if file exist and try again");
-        if (fileDes.ext != '.sql')
-            return this.printHelpMessage("Check if file is a valid sql file");
+        // if (fileDes.ext != '.sql')
+        //     return this.printHelpMessage("Check if file is a valid sql file");
 
         //if out is provided check if it is a dir and it exists
         //assume you are in the root of a sails app
