@@ -1,5 +1,6 @@
 #sails-sql-converter-cli
 ![enter image description here](http://sailsjs.org/images/bkgd_squiddy.png)
+[![Build Status](https://travis-ci.org/Oteng/sails-sql-converter-cli.svg?branch=dev)](https://travis-ci.org/Oteng/sails-sql-converter-cli)
 ###Description:
 This is a command line tool for generating sails models from sql scheme.
 Design your database using any UML software you want export your design
