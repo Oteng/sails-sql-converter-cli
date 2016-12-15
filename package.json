@@ -10,7 +10,7 @@
     "sails model, convertor, sails.js, sailsjs, sails, sql, mysql"
   ],
   "dependencies": {
-    "nopt": "3.0.6"
+    "nopt": "3.0.6",
   },
   "devDependencies": {
     "mocha": ">= 2.5.3",

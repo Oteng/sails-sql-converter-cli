@@ -7,8 +7,8 @@ var Util_1 = require("./Util");
 var Column_1 = require("./Column");
 var ForeignKey_1 = require("./ForeignKey");
 var Reader = (function () {
-    function Reader(file) {
-        this.reader = require('fs').createReadStream(file, {
+    function Reader(opt) {
+        this.reader = require('fs').createReadStream(opt.file, {
             encoding: 'utf8',
             fd: null
         });

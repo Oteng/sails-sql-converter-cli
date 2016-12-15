@@ -30,6 +30,7 @@ var shortHands = {
     "o":["--out"]
 };
 
+var options = {};
 
 var optParsed = nopt(knowOpt, shortHands, process.argv, 2);
 
@@ -49,18 +50,35 @@ if(!fs.existsSync(optParsed.file))
 if(fileDes.ext != '.sql')
     printHelpMessage("Check if file is a valid sql file");
 
+//if out is provided check if it is a dir and it exists
+//assume you are in the root of a sails app
+if(optParsed.out && optParsed.out != 'true'){
+    if(!fs.existsSync(optParsed.file))
+        printHelpMessage("Check if directory exist and try again");
+    var stat = fs.statSync(optParsed.out);
+    if(!stat.isDirectory()){
+        printHelpMessage("Output path is not a valid director");
+    }
+
+    options.outputDir = optParsed.out;
+}else {
+   options.outputDir = process.cwd()
+}
+
+options.file = optParsed.file;
 
 //all is fine so far call program
 var reader = require('../src/Reader');
 var writer = require('../src/Writer');
 (function () {
-    var Reader = new reader.Reader(optParsed.file);
+    var Reader = new reader.Reader(options);
     Reader.read(function (error, tableRoot, foreignKeyRoot) {
         if(error){
             console.log(error);
             process.exit(1);
         }else{
-            writer.Writer.write(tableRoot, foreignKeyRoot);
+            var Writer = new writer.Writer(options);
+            Writer.write(tableRoot, foreignKeyRoot);
         }
     })
 })();

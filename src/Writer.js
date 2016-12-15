@@ -8,9 +8,10 @@ var fs = require('fs');
  * Each tree node is written as a single model
  **/
 var Writer = (function () {
-    function Writer() {
+    function Writer(opt) {
+        this.opt = opt;
     }
-    Writer.write = function (startNode, foreignKeyTree) {
+    Writer.prototype.write = function (startNode, foreignKeyTree) {
         var _this = this;
         /**
          * as we plug off the node starting at the last node
@@ -44,14 +45,14 @@ var Writer = (function () {
             })();
         }
     };
-    Writer.createFile = function (filename) {
-        return fs.createWriteStream(filename);
+    Writer.prototype.createFile = function (filename) {
+        return fs.createWriteStream(this.opt.outputDir + '/' + filename);
     };
-    Writer.startTmp = "module.exports = {\n\tattributes: {\n";
-    Writer.referenceTmp = " \t%s: { \n\t\tcollection: '%s', \n\t\tvia: '%s'\n\t},\n";
-    Writer.foreignTmp = '\t%s: { model: "%s" },\n';
-    Writer.attributeTmp = '\t%s : {type: %s} ,\n';
-    Writer.endTmp = '\t}\n};';
+    Writer.prototype.startTmp = "module.exports = {\n\tattributes: {\n";
+    Writer.prototype.referenceTmp = " \t%s: { \n\t\tcollection: '%s', \n\t\tvia: '%s'\n\t},\n";
+    Writer.prototype.foreignTmp = '\t%s: { model: "%s" },\n';
+    Writer.prototype.attributeTmp = '\t%s : {type: %s} ,\n';
+    Writer.prototype.endTmp = '\t}\n};';
     return Writer;
 }());
 exports.Writer = Writer;
