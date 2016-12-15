@@ -1,5 +1,5 @@
 "use strict";
-var Util_1 = require("./Util");
+var Util = require("./Util");
 var util = require('util');
 var fs = require('fs');
 /**
@@ -29,12 +29,12 @@ var Writer = (function () {
                         stream.write(util.format(_this.attributeTmp, columns[i].name, "'" + columns[i].type + "'"));
                     }
                     //search reference tree
-                    var coll = Util_1.Util.findColl(filename, foreignKeyTree);
+                    var coll = Util.Util.findColl(filename, foreignKeyTree);
                     for (var i = 0; i < coll.length; i++) {
                         stream.write(util.format(_this.foreignTmp, coll[i].getModel().toLocaleLowerCase(), coll[i].getModel().toLocaleLowerCase()));
                     }
                     //search for any table referencing it
-                    var model = Util_1.Util.findModel(filename, foreignKeyTree);
+                    var model = Util.Util.findModel(filename, foreignKeyTree);
                     for (var i = 0; i < model.length; i++) {
                         stream.write(util.format(_this.referenceTmp, model[i].getColl().toLocaleLowerCase(), model[i].getColl().toLocaleLowerCase(), model[i].getModel().toLocaleLowerCase()));
                     }
