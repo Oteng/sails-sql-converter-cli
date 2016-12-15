@@ -167,8 +167,9 @@ var Reader = (function () {
                 }
             }
             if (!someDataRead) {
-                Util.Util.printTree(root);
-                Util.Util.printForeignTree(foreign_root);
+                // Util.Util.printTree(root);
+                // Util.Util.printForeignTree(foreign_root);
+                console.log("All done");
                 return cb(null, root, foreign_root);
             }
         });
