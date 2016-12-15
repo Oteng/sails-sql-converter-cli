@@ -111,7 +111,7 @@ module.exports = {
         else
             console.log((msg) ? msg : help);
 
-        if (!process.env.NODE_ENV == 'test')
+        if (process.env.NODE_ENV != 'test')
             process.exit();
     }
 };
