@@ -1,6 +1,6 @@
 {
   "name": "sails-sql-converter-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Converts an SQL schema to a valid sails model preserving all relationships",
   "main": "index.js",
   "scripts": {
