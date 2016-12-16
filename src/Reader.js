@@ -13,6 +13,7 @@ var Reader = (function () {
             fd: null
         });
     }
+
     Reader.prototype.read = function (cb) {
         var _this = this;
         //the root node of the tree
@@ -71,11 +72,23 @@ var Reader = (function () {
                                 if (dataContext == "column_type") {
                                     var last = Util.Util.getLast(root);
                                     var tmp = last.getLastColumn();
-                                    if (keyword.toLocaleLowerCase() == 'int') {
+                                    var locKeyword = keyword.toLocaleLowerCase();
+                                    if (locKeyword == 'int' || locKeyword == 'smallint' || locKeyword == 'tinyint' || locKeyword == 'mediumint' || locKeyword == 'bigint') {
                                         tmp.setType("integer");
-                                    }
-                                    else if (keyword.toLocaleLowerCase() == 'varchar' || keyword.toLocaleLowerCase() == 'char') {
+                                    } else if (locKeyword == 'float' || locKeyword == 'double' || locKeyword == 'decimal') {
+                                        tmp.setType("float");
+                                    } else if (locKeyword == 'varchar' || locKeyword == 'char' || locKeyword == 'tinyblob' || locKeyword == 'tinytext') {
                                         tmp.setType("string");
+                                    }else if (locKeyword == 'blob' || locKeyword == 'text') {
+                                        tmp.setType("text");
+                                    }else if (locKeyword == 'mediumblob' || locKeyword == 'mediumtext') {
+                                        tmp.setType("mediumtext");
+                                    }else if (locKeyword == 'longblob' || locKeyword == 'longtext') {
+                                        tmp.setType("longtext");
+                                    } else if (locKeyword == 'date') {
+                                        tmp.setType("date");
+                                    }else if (locKeyword == 'datetime' || locKeyword == 'timestamp') {
+                                        tmp.setType("datetime");
                                     }
                                     dataContext = '';
                                 }
