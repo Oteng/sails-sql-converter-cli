@@ -5,6 +5,7 @@
 var Util = (function () {
     function Util() {
     }
+
     Util.printTree = function (root) {
         if (root.getNext() == null)
             return console.log(root.getKeyword(), root.getTableName(), root.getColumnObj());
@@ -14,7 +15,7 @@ var Util = (function () {
         }
     };
     Util.printForeignTree = function (root) {
-        if(root == null)
+        if (root == null)
             return;
         if (root.getNext() == null)
             return console.log(root.getName(), root.getModel(), root.getColl());
@@ -54,6 +55,15 @@ var Util = (function () {
                 return model;
             tmp = tmp.getNext();
         }
+    };
+    Util.countNodes = function (root) {
+        var count = 1;
+        if (typeof root == 'undefined')
+            return 0;
+        else if (root.getNext() == null)
+            return 1;
+        else
+            return count + this.countNodes(root.getNext());
     };
     return Util;
 }());

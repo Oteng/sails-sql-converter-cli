@@ -4,7 +4,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`tblTest1` (
   `age` VARCHAR(45) NULL,
   `location` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
 
 CREATE TABLE IF NOT EXISTS `mydb`.`tblTest2` (
   `id` INT NOT NULL,
@@ -18,4 +17,3 @@ CREATE TABLE IF NOT EXISTS `mydb`.`tblTest2` (
     REFERENCES `mydb`.`tblTest1` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
