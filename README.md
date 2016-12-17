@@ -48,8 +48,15 @@ References
 ```
 ### Data Types Mapping
 ```
-varchar -> string
-int -> interger
+varchar, char, tinyblob, tinytext           -> string
+int, smallint, tinyint, mediumint, bigint   -> interger
+float, double, decimal                      -> float
+blob, text                                  -> text
+mediumblob, mediumtext                      -> mediumtext
+longblob, longtext                          -> longtext
+date                                        -> date
+datetime, timestamp                         -> datetime
+binary                                      -> binary
 ```
 
 
