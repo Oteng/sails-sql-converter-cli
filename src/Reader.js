@@ -79,17 +79,20 @@ var Reader = (function () {
                                         tmp.setType("float");
                                     } else if (locKeyword == 'varchar' || locKeyword == 'char' || locKeyword == 'tinyblob' || locKeyword == 'tinytext') {
                                         tmp.setType("string");
-                                    }else if (locKeyword == 'blob' || locKeyword == 'text') {
+                                    } else if (locKeyword == 'blob' || locKeyword == 'text') {
                                         tmp.setType("text");
-                                    }else if (locKeyword == 'mediumblob' || locKeyword == 'mediumtext') {
+                                    } else if (locKeyword == 'mediumblob' || locKeyword == 'mediumtext') {
                                         tmp.setType("mediumtext");
-                                    }else if (locKeyword == 'longblob' || locKeyword == 'longtext') {
+                                    } else if (locKeyword == 'longblob' || locKeyword == 'longtext') {
                                         tmp.setType("longtext");
                                     } else if (locKeyword == 'date') {
                                         tmp.setType("date");
-                                    }else if (locKeyword == 'datetime' || locKeyword == 'timestamp') {
+                                    } else if (locKeyword == 'datetime' || locKeyword == 'timestamp') {
                                         tmp.setType("datetime");
-                                    }
+                                    } else if (locKeyword == 'binary')
+                                        tmp.setType('binary');
+                                    else
+                                        tmp.setType('string');
                                     dataContext = '';
                                 }
                         }

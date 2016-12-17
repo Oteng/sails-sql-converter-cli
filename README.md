@@ -56,6 +56,7 @@ mediumblob, mediumtext                      -> mediumtext
 longblob, longtext                          -> longtext
 date                                        -> date
 datetime, timestamp                         -> datetime
+binary                                      -> binary
 ```
 
 
